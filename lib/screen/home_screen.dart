@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       //setting up backgroun color
       backgroundColor: mBackgroundColor,
 
+      //setting up bottom navigation bar
       bottomNavigationBar: BottomNavigationTravelkuy(),
     );
   }

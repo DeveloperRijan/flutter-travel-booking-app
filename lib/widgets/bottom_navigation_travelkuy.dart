@@ -39,15 +39,27 @@ class _BottomNavigationTravelkuyState extends State<BottomNavigationTravelkuy> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: _selectedIndex == 0
-                ? new SvgPicture.asset("assets/icons/home.svg")
-                : new SvgPicture.asset("assets/icons/home_colored.svg"),
+                ? new SvgPicture.asset("assets/icons/home_colored.svg")
+                : new SvgPicture.asset("assets/icons/home.svg"),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: _selectedIndex == 0
-                ? new SvgPicture.asset("assets/icons/home.svg")
-                : new SvgPicture.asset("assets/icons/home_colored.svg"),
-            label: "Home",
+            icon: _selectedIndex == 1
+                ? new SvgPicture.asset("assets/icons/order_colored.svg")
+                : new SvgPicture.asset("assets/icons/order.svg"),
+            label: "My Order",
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 2
+                ? new SvgPicture.asset("assets/icons/watch_colored.svg")
+                : new SvgPicture.asset("assets/icons/watch.svg"),
+            label: "Watch List",
+          ),
+          BottomNavigationBarItem(
+            icon: _selectedIndex == 3
+                ? new SvgPicture.asset("assets/icons/account_colored.svg")
+                : new SvgPicture.asset("assets/icons/account.svg"),
+            label: "Account",
           )
         ],
         currentIndex: _selectedIndex,
