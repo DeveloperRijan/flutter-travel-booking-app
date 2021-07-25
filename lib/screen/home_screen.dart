@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_booking_app/constants/color_constant.dart';
+import 'package:travel_booking_app/constants/style_constant.dart';
 import 'package:travel_booking_app/widgets/bottom_navigation_travelkuy.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,6 +25,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
       //setting up bottom navigation bar
       bottomNavigationBar: BottomNavigationTravelkuy(),
+
+      //body
+      body: Container(
+        child: ListView(
+          physics: ClampingScrollPhysics(),
+          children: <Widget>[
+            //Promos Section
+            Padding(
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: Text(
+                "Hi, Rijan this promos for you!",
+                style: mTitleStyle,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
