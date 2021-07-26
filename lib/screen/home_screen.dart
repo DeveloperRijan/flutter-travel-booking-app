@@ -6,6 +6,7 @@ import 'package:travel_booking_app/constants/color_constant.dart';
 import 'package:travel_booking_app/constants/style_constant.dart';
 import 'package:travel_booking_app/models/carousel_model.dart';
 import 'package:travel_booking_app/models/popular_detinations_model.dart';
+import 'package:travel_booking_app/models/travel_log_model.dart';
 import 'package:travel_booking_app/widgets/bottom_navigation_travelkuy.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             //service section
             Padding(
-              padding: EdgeInsets.only(left: 16, top: 24),
+              padding: EdgeInsets.only(left: 16, top: 24, bottom: 24),
               child: Text(
                 "Let's Booking!",
                 style: mTitleStyle,
@@ -320,7 +321,87 @@ class _HomeScreenState extends State<HomeScreen> {
                               ))),
                     );
                   },
-                ))
+                )),
+
+            //bottom section
+            Padding(
+              padding:
+                  EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
+              child: Text("Travel Logs", style: mTitleStyle),
+            ),
+
+            Container(
+                height: 180,
+                child: ListView.builder(
+                  padding: EdgeInsets.only(left: 16),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: travelLogs.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      margin: EdgeInsets.only(right: 16),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Stack(children: <Widget>[
+                            Container(
+                                height: 104,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                    image: AssetImage(travelLogs[index].image),
+                                    fit: BoxFit.cover,
+                                  ),
+                                )),
+
+                            //absolute elements
+                            Positioned(
+                              child: SvgPicture.asset(
+                                  "assets/svg/travlog_top_corner.svg"),
+                              right: 0,
+                            ),
+                            Positioned(
+                                top: 8,
+                                right: 8,
+                                child: SvgPicture.asset(
+                                    "assets/svg/travelkuy_logo_white.svg")),
+
+                            Positioned(
+                              bottom: 0,
+                              child: SvgPicture.asset(
+                                  "assets/svg/travlog_bottom_gradiant.svg"),
+                            ),
+                            Positioned(
+                              bottom: 8,
+                              left: 8,
+                              child: Text(
+                                "TravelLog " + travelLogs[index].name,
+                                style: mTravlogTitleStyle,
+                              ),
+                            )
+                          ]),
+
+                          //bottom little description
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            travelLogs[index].content,
+                            maxLines: 3,
+                            style: mTravlogContentStyle,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            travelLogs[index].place,
+                            style: mTravlogPlaceStyle,
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                )),
           ],
         ),
       ),
