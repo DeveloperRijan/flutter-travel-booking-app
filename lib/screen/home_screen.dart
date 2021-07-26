@@ -84,6 +84,121 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+
+            Container(
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                      children: map(carousels, (index, image) {
+                    return Container(
+                      alignment: Alignment.centerLeft,
+                      height: 6,
+                      width: 6,
+                      margin: EdgeInsets.only(right: 8),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _current == index ? mBlueColor : mGrayColor),
+                    );
+                  })),
+
+                  //more
+                  Text(
+                    "More...",
+                    style: mMoreDiscountStyle,
+                  )
+                ],
+              ),
+            ),
+
+            //service section
+            Padding(
+              padding: EdgeInsets.only(left: 16, top: 24),
+              child: Text(
+                "Let's Booking!",
+                style: mTitleStyle,
+              ),
+            ),
+
+            //menu list
+            Container(
+              height: 144,
+              margin: EdgeInsets.only(left: 16, right: 16),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(12),
+                              border:
+                                  Border.all(color: mBorderClolor, width: 1)),
+                          child: Row(
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                "assets/svg/service_flight_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Flight"),
+                                    Text("feel freedom")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(12),
+                              border:
+                                  Border.all(color: mBorderClolor, width: 1)),
+                          child: Row(
+                            children: <Widget>[
+                              SvgPicture.asset(
+                                "assets/svg/service_flight_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Flight"),
+                                    Text("feel freedom")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
