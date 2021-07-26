@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travel_booking_app/constants/color_constant.dart';
 import 'package:travel_booking_app/constants/style_constant.dart';
 import 'package:travel_booking_app/models/carousel_model.dart';
+import 'package:travel_booking_app/models/popular_detinations_model.dart';
 import 'package:travel_booking_app/widgets/bottom_navigation_travelkuy.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -268,7 +270,57 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-            )
+            ),
+
+            //popular destinations
+            Padding(
+              padding: EdgeInsets.only(left: 16, top: 24, bottom: 24),
+              child: Text(
+                "Popular Destinations!",
+                style: mTitleStyle,
+              ),
+            ),
+
+            Container(
+                margin: EdgeInsets.only(left: 16, right: 16),
+                height: 140,
+                child: ListView.builder(
+                  itemCount: populars.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Container(
+                          height: 140,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: mFillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: mBorderClolor, width: 1),
+                          ),
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 8, bottom: 16),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    populars[index].image,
+                                    height: 74,
+                                  ),
+                                  Text(
+                                    populars[index].name,
+                                    style: mPopularDestinationTitleStyle,
+                                  ),
+                                  Text(
+                                    populars[index].country,
+                                    style: mPopularDestinationSubtitleStyle,
+                                  )
+                                ],
+                              ))),
+                    );
+                  },
+                ))
           ],
         ),
       ),
